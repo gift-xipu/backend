@@ -2,13 +2,16 @@ import { useState, useEffect } from 'react'
 import supabase from '../config/supabaseClient'
 
 export default function Account({ session }) {
+
   const [loading, setLoading] = useState(true)
   const [username, setUsername] = useState(null)
   const [website, setWebsite] = useState(null)
   const [avatar_url, setAvatarUrl] = useState(null)
 
   useEffect(() => {
+
     async function getProfile() {
+      
       setLoading(true)
       const { user } = session
 
