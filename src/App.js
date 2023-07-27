@@ -24,16 +24,14 @@ function App() {
       <Router>
         <Routes>
           {/* Check if the user is logged in, if yes, render the Account page, otherwise, render the login page */}
-          <Route
-            path="/"
-            element={session ? <Auth /> : <Welcome />}
-          />
+          <Route path="/">
+            <Welcome/>
+          </Route>
 
-          <Route
-            path="/login"
-            element={session ? <Dashboard /> : <Auth />}
-          />
-          
+          <Route exact path="/login">
+            {session ? <Dashboard /> : <Auth />}
+          </Route>
+     
           <Route path="/account" element={<Account session={session} />} />
         </Routes>
       </Router>

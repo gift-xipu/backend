@@ -24,8 +24,7 @@ function Auth() {
   return (
     <div className="row flex flex-center">
       <div className="col-6 form-widget">
-        <h1 className="header">Supabase + React</h1>
-        <p className="description">Sign in via magic link with your email and password below</p>
+        <h1 className="description">Sign in via magic link</h1>
         <form className="form-widget" onSubmit={handleLogin}>
           <div>
             <input
