@@ -20,21 +20,15 @@ body {
   --custom-color: #fff;
   --custom-color-brand: #24b47e;
   --custom-color-secondary: #666;
-  --custom-border: 1px solid #333;
-  --custom-border-radius: 5px;
-  --custom-spacing: 5px;
+ 
 
   padding: 0;
   margin: 0;
   font-family: var(--custom-font-family);
-  background: linear-gradient(to bottom, #D9D9D9, #1D5757);
+  background:  linear-gradient(to bottom, rgba(217, 217, 217, 0.5), rgba(29, 87, 87, 0.5));
+
 }
 
-* {
-  color: var(--custom-color);
-  font-family: var(--custom-font-family);
-  box-sizing: border-box;
-}
 
 html,
 body,
@@ -47,7 +41,7 @@ body,
 /* Grid */
 
 .container {
-  width: 90%;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -188,13 +182,14 @@ label {
 }
 
 input {
-  width: 100%;
+  width: 80%;
   border-radius: 5px;
   border: var(--custom-border);
   padding: 8px;
   font-size: 0.9rem;
   background-color: var(--custom-bg-color);
   color: var(--custom-color);
+  margin-left: 4rem;
 }
 
 input[disabled] {
@@ -205,11 +200,13 @@ input[disabled] {
 
 .block {
   display: block;
-  width: 100%;
+  width: 40%;
+  border-radius: 3px;
+  margin-left: 10rem;
 }
 .inline-block {
   display: inline-block;
-  width: 100%;
+  width: 80%;
 }
 .flex {
   display: flex;
@@ -228,6 +225,7 @@ input[disabled] {
 }
 .flex-center {
   justify-content: center;
+
 }
 .items-center {
   align-items: center;
@@ -255,12 +253,13 @@ button,
   background-color: var(--custom-bg-color);
   display: inline-block;
   text-align: center;
-  border-radius: var(--custom-border-radius);
-  padding: 10px 5px;
+  padding: 10px;
   cursor: pointer;
+  border-radius: 10px;
   text-align: center;
-  font-size: 0.9rem;
+  font-size: 0.7rem;
   text-transform: uppercase;
+
 }
 
 button.primary,
@@ -365,7 +364,7 @@ button.primary,
   border-bottom: 2px solid #1D5757;
   padding-bottom: 20px;
   margin-top: 30px;
-
+  margin-left: 8rem;
   background: linear-gradient(to bottom, #1D5757, #D9D9D9);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -374,6 +373,8 @@ button.primary,
   display: flex;
   flex-direction: column;
   gap: 20px;
+  width: 70%;
+  margin-left: 8rem;
 }
 
 .form-widget > .button {
@@ -384,12 +385,12 @@ button.primary,
   background-color: #444444;
   text-transform: none !important;
   transition: all 0.2s ease;
-  
+
 }
 
 .form-widget .button:hover {
-  background: linear-gradient(to top, #D5D9D9, #1D5757);
-  color: #101010;
+  background: linear-gradient(to top, rgba(217, 217, 217, 2.9), #1D5757);
+  color: black;
 }
 
 .form-widget .button > .loader {
@@ -420,17 +421,4 @@ button.primary,
   font-size: 16px;
 }
 
-button[type="submit"] {
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 3px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
 
-button[type="submit"]:hover {
-  background-color: #45a049;
-}

@@ -1,28 +1,52 @@
-import { useNavigate, Link } from 'react-router-dom';
-import supabase from '../config/supabaseClient';
+import { useNavigate} from 'react-router-dom';
+import React from 'react';
+import '../styles/home/home.css';
+import Title from '../components/home/title.jsx';
+import Header from '../components/header/header';
+import Slider from '../components/home/slider.jsx'
 
 export default function Dashboard() {
-  const navigate = useNavigate(); // Get the navigate function from react-router-dom
+  
+  const history = useNavigate();
 
-  async function handleSignOut() {
-    const { error } = await supabase.auth.signOut();
-
-    if (error) {
-      alert(error.message);
-    } else {
-      // Redirect the user to the login page after successful sign-out
-      navigate('/login'); // Replace '/login' with the path to your login page
-    }
-  }
+  const handleButtonClick = () => {
+    history('/about');
+  };
 
   return (
-    <div>
-      <p>Welcome!</p>
-      <button onClick={handleSignOut}>Sign out</button>
+    <div className='body'>
 
-      {/* Add a button that takes the user to the updateProfile page */}
-      <Link to="/account">Update Profile</Link>
-      {/* Replace '/account' with the path to your updateProfile page */}
+      <Header />
+
+      <section className='main-section'>
+        
+        <div className="container">
+
+          <div className="row">
+                    
+            <Title subtitle='WELCOME TO BETTER-MAN' title='THE BEST LEARNING PLATFORM'/>
+            <br/>
+            <p className='main-paragraph'>
+                A non-governmental organization (NGO) dedicated to empowering 
+                and developing our future stars. At Better-Man, we think that every child has 
+                the potential to shine brightly in the world. Our purpose is to make the future a 
+                better place by focusing on improving mental and educational skills, nurturing young 
+                brains, 
+                and cultivating a compassionate and inclusive community.
+            </p>
+                    
+            <button className='btnPrimary' onClick={handleButtonClick}>About us</button>
+
+          </div>
+
+          <div className='slider'>
+            <Slider />
+          </div>
+                
+        </div>
+
+      </section>
+    
     </div>
   );
 }

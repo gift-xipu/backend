@@ -1,22 +1,20 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, useNavigate} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import '../../styles/welcome/welcome.css'
-import Login from '../../backend/Auth';
-import Register from '../../backend/Auth';
 import Logo from '../../images/logo.gif'
 import logo from '../../images/logo.png'
 
-const Main = () => {
+const Welcome = () => {
 
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate('/login'); // Use navigate instead of history.push
+    navigate('/login'); 
   };
 
   return (
     
-    <div className="main-wrapper">
+    <div className="welcome">
 
         <div className="inner-wrapper">
 
@@ -55,7 +53,7 @@ const Main = () => {
                         <div className="logo-container">
                             <img
                                 src={Logo}
-                                alt="Btter-Man Logo"
+                                alt="Better-Man Logo"
                                 className="logo-image"
                             />
                         </div>
@@ -86,5 +84,5 @@ const Main = () => {
   )
 }
 
-export default Main;
+export default Welcome;
 

@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import '../../styles/home/slider.css'
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Slideshow = () => {
 
@@ -37,10 +37,10 @@ const Slideshow = () => {
       return () => clearInterval(interval); // Clean up the interval on component unmount
     }, [imageData.length]);
 
-    const history = useHistory();
+    const history = useNavigate();
 
     const handleButtonClick = () => {
-      history.push('/courses');
+      history('/courses');
     };
 
     return (
