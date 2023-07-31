@@ -50,6 +50,8 @@ const Courses = () => {
                 <button className="link-button">Enroll</button>
             </div>
 
+            
+
            
         </div>  
 
