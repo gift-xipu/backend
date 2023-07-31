@@ -1,0 +1,8 @@
+flask
+cors
+flask_cors
+openai
+langchain
+wolframalpha
+axios
+python-dotenv
