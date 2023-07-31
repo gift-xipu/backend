@@ -1,64 +1,72 @@
-import '../styles/account/login.css'
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import supabase from '../config/supabaseClient';
-import { useState } from 'react';
-import '../index.css'
+import '../styles/account/login.css';
+import '../index.css';
 
-function Auth() {
+function Login() {
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState(''); // New state variable for password
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState(null); // New state for error handling
 
   const handleLogin = async (event) => {
     event.preventDefault();
-
     setLoading(true);
-    
-    const { error } = await supabase.auth.signInWithOtp({ email, password }); // Include the password
 
-    if (error) {
-      alert(error.error_description || error.message);
-    } else {
-      alert('Check your email for the login link!');
+    try {
+      const { error } = await supabase.auth.signInWithPassword({ email, password });
+
+      if (error) {
+        throw new Error(error.message); // Throw an error if the response has an error message
+      } else {
+        alert('Login successful!');
+        // Redirect the user to the authenticated area or perform any other actions
+      }
+    } catch (error) {
+      setError(error.message); // Set the error state with the error message
+      console.error('Login Error:', error);
     }
+
     setLoading(false);
   };
-
-  
 
   return (
     <div className="row flex flex-center">
       <div className="col-6 form-widget">
-        <h1 className="description">Sign in via magic link</h1>
+        <h1 className="description">Sign In</h1>
         <form className="form-widget" onSubmit={handleLogin}>
-          
-            <input
-              className="inputField"
-              type="email"
-              placeholder="Your email"
-              value={email}
-              required={true}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          
-          
-            <input
-              className="inputField"
-              type="password"
-              placeholder="Your password"
-              value={password}
-              required={true}
-              onChange={(e) => setPassword(e.target.value)} // Update the password state
-            />
-          
+          <input
+            className="inputField"
+            type="email"
+            placeholder="Your email"
+            value={email}
+            required={true}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <input
+            className="inputField"
+            type="password"
+            placeholder="Your password"
+            value={password}
+            required={true}
+            onChange={(e) => setPassword(e.target.value)}
+          />
           <div>
-            <button className={'button block'} disabled={loading}>
-              {loading ? <span>Loading</span> : <span>Send magic link</span>}
+            <button className="button block" disabled={loading}>
+              {loading ? <span>Loading</span> : <span>Login</span>}
             </button>
           </div>
         </form>
+        <div>
+          <p>
+            Don't have an account? <Link to="/signup">Sign Up</Link>
+          </p>
+        </div>
+        {error && <p className="error-message">{error}</p>} {/* Display the error message if there's an error */}
       </div>
     </div>
   );
 }
 
-export default Auth;
+export default Login;
