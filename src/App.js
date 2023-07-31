@@ -9,11 +9,17 @@ import Welcome from './components/welcome/welcome.jsx'
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import Chatbot from './components/courses/chatbot.jsx'
 
-import HtmlPage from "./components/courses/pages/htmlPage.jsx";
-import CSSPage from "./components/courses/pages/cssPage.jsx";
-import JavascriptPage from "./components/courses/pages/javascriptPage.jsx";
-import NodePage from "./components/courses/pages/nodejsPage.jsx";
-import DatabasePage from "./components/courses/pages/databasePage.jsx";
+import HtmlPage from "./components/courses/pages/WebDevelopment/htmlPage.jsx";
+import CSSPage from "./components/courses/pages/WebDevelopment/cssPage.jsx";
+import JavascriptPage from "./components/courses/pages/WebDevelopment/javascriptPage.jsx";
+import NodePage from "./components/courses/pages/WebDevelopment/nodejsPage.jsx";
+import DatabasePage from "./components/courses/pages/WebDevelopment/databasePage.jsx";
+
+
+import pythonBasics from "./components/courses/pages/BusinessIntelligence/pythonBasics.js";
+import sqlBasics from "./components/courses/pages/BusinessIntelligence/sqlBasics.js";
+import principlesOfData from "./components/courses/pages/BusinessIntelligence/principlesOfData.js";
+import pandas from "./components/courses/pages/BusinessIntelligence/pandas.js";
 
 function App() {
 
@@ -50,6 +56,12 @@ function App() {
           <Route path="/courses/javascript" element={<JavascriptPage session={session} />} />
           <Route path="/courses/pages/nodejs" element={<NodePage session={session} />} />
           <Route path="/courses/pages/database" element={<DatabasePage session={session} />} />
+
+
+          <Route path="/courses/pages/page2" element={<pandas session={session} />} />
+          <Route path="/courses/pages/principlesOfDataPage" element={<principlesOfDataPage session={session} />} />
+          <Route path="/courses/pages/pythonBasicsPage" element={<pythonBasics session={session} />} />
+          <Route path="/courses/pages/sqlBasicsPage" element={<sqlBasics session={session} />} />
         
         </Routes>
       </Router>

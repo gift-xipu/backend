@@ -1,9 +1,9 @@
 import React from "react";
-import Sidebar from "../blocks/sidebar";
-import SimpleBlock from "../blocks/simpleBlock";
-import SimpleList from "../blocks/simpleList";
+import Sidebar from "../../blocks/sidebar";
+import SimpleBlock from "../../blocks/simpleBlock";
+import SimpleList from "../../blocks/simpleList";
 
-export default function htmPage() {
+export default function princeplesOfData() {
   return (
     <div className="course-contaner">
       <Sidebar activeIndex={2} />

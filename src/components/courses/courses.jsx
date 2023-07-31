@@ -4,11 +4,11 @@ import { useNavigate, Link } from 'react-router-dom';
 import '../../styles/courses/courses.css'
 import Header from '../header/header'
 
-import HtmlPage from "./pages/htmlPage";
-import CSSPage from "./pages/cssPage";
-import JavascriptPage from "./pages/javascriptPage";
-import NodePage from "./pages/nodejsPage";
-import DatabasePage from "./pages/databasePage";
+import HtmlPage from "./pages/WebDevelopment/htmlPage";
+import CSSPage from "./pages/WebDevelopment/cssPage";
+import JavascriptPage from "./pages/WebDevelopment/javascriptPage";
+import NodePage from "./pages/WebDevelopment/nodejsPage";
+import DatabasePage from "./pages/WebDevelopment/databasePage";
 
 const Courses = () => {
 

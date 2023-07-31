@@ -37,8 +37,7 @@ export default function Helper({ text }) {
                 fill="#31C1C1"
             />
             </svg>
-        </button>
-        
+        </button> 
       
       {/* Tooltip component anchored to the element with the unique ID */}     
       <Tooltip anchorSelect={`#not-${uid}`}>{text}</Tooltip>
